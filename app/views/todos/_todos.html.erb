@@ -3,11 +3,11 @@
     <% todos.each do |todo| %>
       <div class="todo-box">
         <div class="todo-wrapper">
-          <a class="image" href="<%= todo_path(todo) %>">
-            <%= image_tag("todos/#{todo.twitter_id}/#{todo.images[0].name}") %>
-          </a>
+          <%= button_to "d", todo_path(todo), :class => "btn btn-outline-danger rounded-circle", method: :delete, data: { confirm: 'Sure?' } %>
+          <%= image_tag("todos/#{todo.twitter_id}/#{todo.images[0].name}") %>
+          <%#<%= button_to "d", todo_path(todo), :class => "btn btn-outline-danger rounded-circle", method: :delete, data: { confirm: 'Sure?' } %>
+  <%# </a> %>
           <%#<%= render 'likes/like', todo: todo %>
-          <%= button_to "delete", todo_path(todo), method: :delete, data: { confirm: 'Sure?' } %>
         </div>
       </div>
     <% end %>

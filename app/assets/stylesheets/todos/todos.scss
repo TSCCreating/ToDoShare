@@ -11,16 +11,17 @@ div[data-type="todos"] {
       border-radius: 10px;
       border: solid 1px black;
       .todo-wrapper {
-        .image {
-          img {
-            width: 100%;
-          }
-        }
+        position: relative;
         .button_to {
+          text-align: right;
           input {
-            width: 100%;
+            position: absolute;
           }
         }
+        .img {
+          position: absolute;
+        }
+
       }
     }
   }
