@@ -6,6 +6,7 @@ div[data-type="todos"] {
     .todo-box {
       text-align: center;
       padding: 15px 15px 10px;
+      margin-top: 30px;
       margin-bottom: 30px;
       background: #fff;
       border-radius: 10px;
@@ -13,7 +14,6 @@ div[data-type="todos"] {
       .todo-wrapper {
         .button_to {
           text-align: left;
-          // margin-left: 15px;
           margin-bottom: 15px;
           input {
             border-radius: 50%;

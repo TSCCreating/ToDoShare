@@ -12,11 +12,10 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= link_to 'home', root_path %>
     <%= yield %>
-    <%= render 'layouts/footer' %>
     <% if (current_user) %>
       <%= render 'layouts/menu' %>
     <% end %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
