@@ -1,14 +1,14 @@
 <div data-type="menu">
   <div class="wrapper container">
     <div class="links">
-      <a class="timeline col-md-4" href="/todos">
+      <a class="timeline col-md-4" href="/timeline">
         <p>タイムライン</p>
+      </a>
+      <a class="new col-md-4" href="<%= new_todo_path %>">
+        <p>＋</p>
       </a>
       <a class="mypage col-md-4" href="/<%= current_user.twitter_id %>">
         <p>マイページ</p>
-      </a>
-      <a class="likes col-md-4" href="/<%= current_user.twitter_id %>/likes">
-        <p>いいねしたTodo</p>
       </a>
     </div>
   </div>

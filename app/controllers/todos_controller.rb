@@ -4,7 +4,8 @@ class TodosController < ApplicationController
     @todos = Todo.all.order(created_at: 'desc').limit(5)
   end
 
-  def new
+  def timeline
+    @todos = Todo.all.order(created_at: 'desc').limit(5)
   end
 
   def show

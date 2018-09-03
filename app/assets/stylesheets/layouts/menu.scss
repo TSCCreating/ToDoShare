@@ -12,14 +12,16 @@ div[data-type="menu"] {
     padding-top: 15px;
     .links {
       display: flex;
+      margin: auto;
+      max-width: 400px;
       text-align: center;
       .timeline {
         color: green;
       }
-      .mypage {
+      .new {
         color: green;
       }
-      .likes {
+      .mypage {
         color: green;
       }
     }
