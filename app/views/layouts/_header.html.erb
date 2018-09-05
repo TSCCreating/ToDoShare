@@ -1,7 +1,13 @@
 <div data-type="header">
   <div class="wrapper container">
-     <a class="title-font" href="/">
+    <% if (current_user) %>
+      <a class="title-font" href="/mypage">
        ToDoShre（仮）
-     </a>
+      </a>
+    <% else %>
+      <a class="title-font" href="/">
+       ToDoShre（仮）
+      </a>
+    <% end %>
   </div>
 </div>

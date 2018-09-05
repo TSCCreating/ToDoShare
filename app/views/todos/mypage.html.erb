@@ -1,7 +1,4 @@
-<h2>
-  <%= link_to 'Add New', new_todo_path %>
-  Todos
-</h2>
-<%# <ul>
-  <%= render 'todos', todos: @todos %>
-<%# </ul> %> %>
+<%= render 'todos', todos: @todos %>
+<% if (current_user) %>
+  <%= render 'layouts/menu' %>
+<% end %>

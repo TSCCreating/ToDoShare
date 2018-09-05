@@ -3,10 +3,10 @@
     <% todos.each do |todo| %>
       <div class="todo-box">
         <div class="todo-wrapper">
-          <%= button_to "icon", todo_path(todo), method: :delete, data: { confirm: 'Sure?' } %>
+          <button>icon</button>
           <%= image_tag("todos/#{todo.twitter_id}/#{todo.images[0].name}") %>
           <div class="row lower">
-            <button>・・・</button>
+            <%= button_to "・・・", todo_path(todo), method: :delete, data: { confirm: 'Sure?' } %>
           </div>
         </div>
       </div>
