@@ -10,6 +10,12 @@ div[data-type="new"] {
       width: 300px;
       height: 200px;
       .inputs {
+        p {
+          input {
+            box-shadow: 0 0 7px #1abc9c;
+            border: 1px solid #1abc9c;
+          }
+        }
       }
     }
   }
