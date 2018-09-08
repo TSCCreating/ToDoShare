@@ -1,21 +1,16 @@
 <div data-type="new">
   <div class="container">
-    <%= form_for :post, url: todos_path do |f| %>
-      <div class="inputs">
-        <p>
+    <div class="input-box">
+      <%= form_for :post, url: todos_path do |f| %>
+        <div class="inputs">
           <%= f.text_field :name %>
-        </p>
-        <p>
           <%= f.text_field :name %>
-        </p>
-        <p>
           <%= f.text_field :name %>
-        </p>
-        <%= button_tag('＋') %>
+        </div>
         <p>
           <%= f.submit %>
         </p>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
