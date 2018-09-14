@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 2018_07_30_064913) do
   end
 
   create_table "todos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "body"
+    t.string "first_body"
+    t.string "second_body"
+    t.string "third_body"
     t.integer "user_id"
     t.string "twitter_id"
     t.integer "likes_count"

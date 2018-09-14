@@ -20,7 +20,9 @@ class TodosController < ApplicationController
   end
 
   def create
-    render plain: params[:post]
+    render plain: params.require(:post)
+    # p = params[:post]
+
     # todo = current_user.todos.create(
     #   body: params[:post][:body],
     #   twitter_id: current_user.twitter_id,
@@ -29,7 +31,7 @@ class TodosController < ApplicationController
     # image = current_user.images.create(
     #   twitter_id: current_user.twitter_id,
     #   todo_id: todo.id,
-    #   name: "#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.png"
+    #   name: "#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.png
     #   )
     # image.make(
     #   current_user.twitter_id, 
