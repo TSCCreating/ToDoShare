@@ -3,6 +3,7 @@ class Todo < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :images, dependent: :destroy
+  validates :first_body, presence: true
 
   def tweet(todo)
     client = Twitter::REST::Client.new do |config|

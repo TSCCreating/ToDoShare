@@ -8,6 +8,10 @@ class TodosController < ApplicationController
     @todos = Todo.all.order(created_at: 'desc').limit(5)
   end
 
+  def new
+    @todo = Todo.new
+  end
+
   def show
     @todo = Todo.find(params[:id])
     @image = Image.find_by(todo_id: @todo.id)
@@ -20,32 +24,38 @@ class TodosController < ApplicationController
   end
 
   def create
-    render plain: params.require(:post)
-    # p = params[:post]
-
-    # todo = current_user.todos.create(
-    #   body: params[:post][:body],
-    #   twitter_id: current_user.twitter_id,
-    #   likes_count: 0
-    #  )
+    @todo = current_user.todos.create(
+      first_body: params[:todo][:first_body],
+      second_body: params[:todo][:second_body],
+      third_body: params[:todo][:third_body],
+      twitter_id: current_user.twitter_id,
+      likes_count: 0
+     )
+    if @todo.invalid?
+      redirect_to new_todo_path, alert: 'Error!!'
+    else
+      @todo.save
+    end
+    
     # image = current_user.images.create(
     #   twitter_id: current_user.twitter_id,
     #   todo_id: todo.id,
-    #   name: "#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.png
+    #   name: "#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.png"
     #   )
     # image.make(
     #   current_user.twitter_id, 
     #   image.name, todo.body, 
     #   current_user.icon_url
     #   )
-    # # todo.tweet()
+    # todo.tweet()
     # redirect_to todo_path(todo)
+
   end
 
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    redirect_to todos_path
+    # redirect_to todos_path
   end
 
   def mypage

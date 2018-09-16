@@ -1,7 +1,12 @@
 <div data-type="new">
   <div class="container">
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %> 
     <div class="input-box">
-      <%= form_for :post, url: todos_path do |f| %>
+      <%= form_for(@todo) do |f| %>
         <div class="inputs">
           <p>
             <%= f.text_field :first_body %>
@@ -14,7 +19,7 @@
           </p>
         </div>
         <p>
-          <%= f.submit '投稿！'%>
+          <%= f.submit '投稿！' %>
         </p>
       <% end %>
     </div>
