@@ -1,16 +1,5 @@
 class TodosController < ApplicationController
   before_action :user_check
-  def index
-    @todos = Todo.all.order(created_at: 'desc').limit(5)
-  end
-
-  def timeline
-    @todos = Todo.all.order(created_at: 'desc').limit(5)
-  end
-
-  def new
-    @todo = Todo.new
-  end
 
   def show
     @todo = Todo.find(params[:id])
@@ -23,6 +12,11 @@ class TodosController < ApplicationController
     # )
   end
 
+  def new
+    # @todo = Todo.new(twitter_id: current_user.twitter_id, likes_count:0)
+    @todo = Todo.new()
+  end
+
   def create
     @todo = current_user.todos.create(
       first_body: params[:todo][:first_body],
@@ -31,10 +25,16 @@ class TodosController < ApplicationController
       twitter_id: current_user.twitter_id,
       likes_count: 0
      )
-    if @todo.invalid?
-      redirect_to new_todo_path, alert: 'Error!!'
+    # if @todo.errors.full_messages
+    if @todo.errors.any?
+      # redirect_to new_todo_path, alert: '1項目を記入してください'
+      # redirect_to root_path
+      # redirect_to new_todo_path
+      render :new
     else
-      @todo.save
+      # render :new
+      # @todo.save
+      redirect_to root_path
     end
     
     # image = current_user.images.create(

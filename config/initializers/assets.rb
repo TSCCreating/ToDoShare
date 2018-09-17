@@ -15,4 +15,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( static_pages/static_pages.css )
 Rails.application.config.assets.precompile += %w( static_pages/static_pages.css )
 Rails.application.config.assets.precompile += %w( likes/likes.css )
-
+Rails.application.config.assets.precompile += %w( hoge.js )
