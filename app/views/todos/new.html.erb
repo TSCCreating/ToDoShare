@@ -4,9 +4,9 @@
       <%= simple_form_for(@todo) do |f| %>
         <div class="inputs">
           <%= f.error_notification %>
-          <%= f.input :first_body %>
-          <%= f.input :second_body %>
-          <%= f.input :third_body %>
+          <%= f.input :first_body, label: false %>
+          <%= f.input :second_body, label: false %>
+          <%= f.input :third_body, label: false %>
           <%= f.button :submit,'投稿！' %>
         </div>
       <% end %>
