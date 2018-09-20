@@ -18,6 +18,7 @@ class TodosController < ApplicationController
   end
 
   def create
+    # render plain: params
     @todo = current_user.todos.create(
       first_body: params[:todo][:first_body],
       second_body: params[:todo][:second_body],
@@ -25,15 +26,9 @@ class TodosController < ApplicationController
       twitter_id: current_user.twitter_id,
       likes_count: 0
      )
-    # if @todo.errors.full_messages
     if @todo.errors.any?
-      # redirect_to new_todo_path, alert: '1項目を記入してください'
-      # redirect_to root_path
-      # redirect_to new_todo_path
       render :new
     else
-      # render :new
-      # @todo.save
       redirect_to root_path
     end
     
