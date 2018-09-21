@@ -1,5 +1,14 @@
 class TodosController < ApplicationController
   before_action :user_check
+  
+  def index
+    path = Rails.application.routes.recognize_path(request.referer)
+    if path[:controller] == 'todos' && path[:action] == 'new'
+      redirect_back(fallback_location: root_path)
+    else
+      render plain: '帰れバカ'
+    end
+  end
 
   def show
     @todo = Todo.find(params[:id])
@@ -13,23 +22,21 @@ class TodosController < ApplicationController
   end
 
   def new
-    # @todo = Todo.new(twitter_id: current_user.twitter_id, likes_count:0)
     @todo = Todo.new()
   end
 
   def create
-    # render plain: params
-    @todo = current_user.todos.create(
+    @todo = current_user.todos.new(
       first_body: params[:todo][:first_body],
       second_body: params[:todo][:second_body],
       third_body: params[:todo][:third_body],
       twitter_id: current_user.twitter_id,
       likes_count: 0
-     )
-    if @todo.errors.any?
-      render :new
-    else
+    )
+    if @todo.save
       redirect_to root_path
+    else
+      render :new
     end
     
     # image = current_user.images.create(
