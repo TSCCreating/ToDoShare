@@ -6,6 +6,7 @@ class TodosController < ApplicationController
     if path[:controller] == 'todos' && path[:action] == 'new'
       redirect_back(fallback_location: root_path)
     else
+      # render error_template 404
       render plain: '帰れバカ'
     end
   end
