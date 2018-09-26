@@ -66,16 +66,5 @@ class TodosController < ApplicationController
   end
 
   def likes
-    likes = Like.where(twitter_id: current_user.twitter_id).order(created_at: 'desc')
-
-    todos_id = []
-    likes.each do |like|
-      todos_id.push(like.todo_id)
-    end
-
-    @todos = []
-    todos_id.each do |id|
-      @todos.push(Todo.find(id))
-    end
   end
 end
